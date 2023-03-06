@@ -3,7 +3,7 @@ import { useFetch } from "@/composables/use-fetch"
 import { ref, type PropType } from "vue"
 import { useRouteConstants } from '@/composables/use-route-constants'
 
-const {routeName} = useRouteConstants()
+const {routeName} = useRouteConstants();
 const { searchTerm, searchUser, searching, searchResults } = useFetch();
 
 const clear = ref(false);

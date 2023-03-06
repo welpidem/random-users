@@ -9,6 +9,7 @@ export function useFetch() {
     const searchTerm = ref('')
     const gender = ref('')
     const searching = ref(false)
+    
 
     const getURL = () =>{
         const paramsObj = {page: page.value.toString(), results: '15', seed: 'abc'}

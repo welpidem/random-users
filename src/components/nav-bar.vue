@@ -1,9 +1,14 @@
+<script setup lang="ts">
+import { useRouteConstants } from '@/composables/use-route-constants'
+
+const {routeName} = useRouteConstants();
+</script>
 <template>
     <nav class="navbar sticky-top navbar-expand-lg shadow">
         <div class="collapse navbar-collapse">
             <a class="navbar-brand ml-4">
                 <RouterLink :to="{
-                    name: 'users'
+                    name: routeName.home
                 }">
                 Random Users App
                 </RouterLink>

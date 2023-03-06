@@ -2,7 +2,7 @@
 <!-- Background image -->
     <div class="p-5 text-center bg-image mb-5"
         style="
-            background-image: url('https://images.unsplash.com/photo-1542361345-89e58247f2d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'); height: 400px;">
+            background-image: url('/src/assets/header.jpg'); height: 400px;">
         <div style="margin-top: 8%; margin-left: 7%;">
             <div class="mask">
                 <div class="d-flex align-items-left h-100">

@@ -4,7 +4,7 @@ import { ref, onMounted } from "vue";
 import Search from './search-user.vue'
 import { useRouteConstants } from '@/composables/use-route-constants'
 
-const {routeName} = useRouteConstants()
+const {routeName} = useRouteConstants();
 const { prevPage, nextPage, filtered, gender, page } = useFetch();
 const ispageOne = ref(false);
 
