@@ -13,9 +13,9 @@ export function useFetch() {
 
     const getURL = () =>{
         const paramsObj = {page: page.value.toString(), results: '15', seed: 'abc'}
-        const BASE_URL = ('https://randomuser.me/api/?')
+        const baseURL = ('https://randomuser.me/api/?')
         const searchParams = new URLSearchParams(paramsObj).toString()
-        const URL = BASE_URL + searchParams
+        const URL = baseURL + searchParams
         return URL
     }
     
