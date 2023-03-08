@@ -4,12 +4,12 @@ import { RouterLink, RouterView } from 'vue-router'
 import { useRouteConstants } from '@/composables/use-route-constants'
 import NavBar from './components/nav-bar.vue'
 
-const {routeName} = useRouteConstants();
+const { routeName } = useRouteConstants();
 const next = ref(false);
 
 </script>
 <template>
-  <div class="page-wrapper" v-if="next === false">
+    <div class="page-wrapper" v-if="next === false">
         <div class="content-wrapper shadow">
             <section id="section-1">
                 <div class="image-container">
@@ -17,21 +17,22 @@ const next = ref(false);
                 </div>
                 <div class="info-container">
                     <h1>Random <i>Users</i></h1>
-                    <label for="toggle2" @click="next = true, $router.push({name: routeName.home})">Click Here.</label>
+                    <label for="toggle2" @click="next = true, $router.push({ name: routeName.home })">Get Started.</label>
                 </div>
             </section>
         </div>
     </div>
-    <NavBar v-else/>
-  <RouterView />
+    <NavBar v-else />
+    <RouterView />
 </template>
 
 <style scoped>
-body{
-  background-color: rgba(214, 214, 214, 0.935);
+body {
+    background-color: rgba(214, 214, 214, 0.935);
 }
-a{
-  text-decoration: none;
+
+a {
+    text-decoration: none;
 }
 
 .page-wrapper {
