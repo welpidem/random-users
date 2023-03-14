@@ -61,12 +61,13 @@ const { filtered, completeName, completeAddress, searching, searchResults, searc
                 </div>
             </div>
         </div>
-        <div class="col" v-if="searchResults.length === 0">
-            <h2> {{ searchTerm }} not found. </h2>
-        </div>
     </div>
+    <h2 v-if="searchResults.length === 0"> {{ searchTerm }} not found. </h2>
 </template>
 <style scoped>
+h2{
+    text-align: center;
+}
 img {
     width: 100%;
     height: 100%;
