@@ -9,7 +9,7 @@ const next = ref(false);
 
 </script>
 <template>
-    <!-- <div class="page-wrapper" v-if="next === false">
+    <div class="page-wrapper" v-if="next === false">
         <div class="content-wrapper shadow">
             <section id="section-1">
                 <div class="image-container">
@@ -21,8 +21,8 @@ const next = ref(false);
                 </div>
             </section>
         </div>
-    </div> -->
-    <NavBar />
+    </div>
+    <NavBar v-else/>
     <RouterView />
 </template>
 
