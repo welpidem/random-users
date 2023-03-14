@@ -1,20 +1,7 @@
 <script setup lang="ts">
-import { useFetch } from "@/composables/use-fetch"
-import { ref, type PropType } from "vue"
-import { useRouteConstants } from '@/composables/use-route-constants'
+import { useComputed } from "@/composables/use-computed"
 
-const {routeName} = useRouteConstants();
-const { searchTerm, searchUser, searching, searchResults } = useFetch();
-
-const clear = ref(false);
-
-const cleared = () => {
-    clear.value = true
-
-    if (searchTerm.value === '') {
-        searching.value = false
-    }
-}
+const { searchTerm, searchUser, searching, clear, cleared } = useComputed();
 
 </script>
 <template>
@@ -31,15 +18,6 @@ const cleared = () => {
             Search
         </button>
     </form>
-    <div class="scroll" v-if="searching">
-        <ul id="userList">
-            <li v-for="(user, index) in searchResults" :key="index" @click="$router.push({name: routeName.profile, params: { id: user.login.uuid }})">
-                <img :src="user.picture.large" alt="user photo" class="results">
-                    {{ user.name.first }} {{ user.name.last }}
-            </li>
-            <li v-if="searchResults.length === 0"> {{ searchTerm }} not found. </li>
-        </ul>
-    </div>
 </template>
 
 <style scoped>
@@ -52,59 +30,6 @@ input:focus {
     border: 1.5px solid #24a0ed;
     background-color: white;
     outline: none;
-}
-
-.scroll {
-    width: 50%;
-    height: 220px;
-    position: absolute;
-    overflow: auto;
-    z-index: 1000;
-    top: 10;
-}
-
-ul {
-    padding-left: 0;
-    z-index: 1000;
-    top: 10;
-    position: absolute;
-    width: 100%;
-}
-
-img.results {
-    border-radius: 5px;
-    margin-right: 10px;
-    width: 10%;
-    height: 10%;
-}
-
-#userList li {
-    width: 100%;
-    border: 1px solid #ddd;
-    margin-top: -1px;
-    margin-right: -1px;
-    background-color: #f6f6f6;
-    padding: 12px;
-    text-decoration: none;
-    font-size: 18px;
-    color: black;
-    display: block;
-}
-
-#userList li:hover {
-    background-color: #bfbebe;
-    cursor: pointer;
-}
-
-a {
-    text-decoration: none;
-    font-size: 18px;
-    color: black;
-}
-
-a:hover {
-    font-size: 18px;
-    color: rgb(47, 47, 47);
 }
 
 button, button:hover, button:disabled {

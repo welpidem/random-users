@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
-import { useRouteConstants } from '@/composables/use-route-constants'
 import NavBar from './components/nav-bar.vue'
+import route from '@/constants/route-constants'
 
-const { routeName } = useRouteConstants();
+const {routeName} = route();
 const next = ref(false);
 
 </script>
 <template>
-    <div class="page-wrapper" v-if="next === false">
+    <!-- <div class="page-wrapper" v-if="next === false">
         <div class="content-wrapper shadow">
             <section id="section-1">
                 <div class="image-container">
@@ -21,8 +21,8 @@ const next = ref(false);
                 </div>
             </section>
         </div>
-    </div>
-    <NavBar v-else />
+    </div> -->
+    <NavBar />
     <RouterView />
 </template>
 

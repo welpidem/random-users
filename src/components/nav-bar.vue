@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useRouteConstants } from '@/composables/use-route-constants'
+import route from '@/constants/route-constants'
 
-const {routeName} = useRouteConstants();
+const {routeName} = route();
 </script>
 <template>
     <nav class="navbar sticky-top navbar-expand-lg shadow">

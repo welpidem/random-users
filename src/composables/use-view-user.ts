@@ -1,13 +1,14 @@
 import { computed, ref } from 'vue';
-import { useFetch } from './use-fetch';
+import { useAPI } from './use-api';
 
-const { userData } = useFetch()
+const { userData } = useAPI()
 
 const hoverName = ref(true)
 const hoverEmail = ref(false)
 const hoverDob = ref(false)
 const hoverPhone = ref(false)
 const hoverAddress = ref(false)
+const userIndex = ref(0)
 
 export function useViewUser() {
 
@@ -19,10 +20,12 @@ export function useViewUser() {
         })
     })
 
-    const formatDate = (date: string) => {
-        const finalDate = new Date(date);
-        return new Intl.DateTimeFormat('en-US').format(finalDate)
-    }
+    const dob = computed (() => {
+        return userData.value.map(userData =>{
+            const finalDate = new Date(userData.dob.date);
+            return new Intl.DateTimeFormat('en-US').format(finalDate)
+        })
+    })
 
     const showName = () =>{
         resetTabState();
@@ -50,16 +53,15 @@ export function useViewUser() {
     }
 
     const resetTabState = () => {
-        hoverName.value = false
-        hoverEmail.value= false
-        hoverDob.value = false
-        hoverPhone.value = false
-        hoverAddress.value = false
+        hoverName.value = false;
+        hoverEmail.value= false;
+        hoverDob.value = false;
+        hoverPhone.value = false;
+        hoverAddress.value = false;
     }
 
     return {
         viewUser,
-        formatDate,
         uuid,
         hoverEmail,
         hoverAddress,
@@ -72,5 +74,7 @@ export function useViewUser() {
         showName,
         showPhone,
         resetTabState,
+        dob,
+        userIndex,
     }
 }
